@@ -1,0 +1,44 @@
+<div class="tabs mb-6">
+  <a
+    routerLink="/view-container-ref"
+    routerLinkActive="tab-active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    class="tab tab-bordered"
+  >
+    Intro
+  </a>
+  <a
+    routerLink="/view-container-ref/create-component"
+    routerLinkActive="tab-active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    class="tab tab-bordered"
+  >
+    <code>.createComponent</code>
+  </a>
+  <a
+    routerLink="/view-container-ref/manipulate-embedded-view"
+    routerLinkActive="tab-active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    class="tab tab-bordered"
+  >
+    <code>.createEmbeddedView</code>
+  </a>
+  <a
+    routerLink="/view-container-ref/reuse-views"
+    routerLinkActive="tab-active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    class="tab tab-bordered"
+  >
+    Reuse Views
+  </a>
+  <a
+    routerLink="why-vcr"
+    routerLinkActive="tab-active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    class="tab tab-bordered"
+  >
+    Why VCR?
+  </a>
+</div>
+
+<router-outlet></router-outlet>
