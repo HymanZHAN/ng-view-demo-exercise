@@ -7,7 +7,12 @@ import { CounterComponent } from "./counter.component";
 @Component({
   selector: "app-why-vcr",
   standalone: true,
-  imports: [NgTemplateOutlet, CounterComponent, MinusOutlineComponent, PlusOutlineComponent],
+  imports: [
+    NgTemplateOutlet,
+    CounterComponent,
+    MinusOutlineComponent,
+    PlusOutlineComponent,
+  ],
   templateUrl: "./why-vcr.component.html",
   styles: [
     `

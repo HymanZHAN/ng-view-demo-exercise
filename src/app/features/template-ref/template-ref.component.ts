@@ -1,7 +1,5 @@
 import { CommonModule } from "@angular/common";
-import {
-  Component,
-} from "@angular/core";
+import { Component } from "@angular/core";
 import {
   PlusOutlineComponent,
   RefreshOutlineComponent,
@@ -11,7 +9,12 @@ import {
 @Component({
   selector: "app-template-ref",
   standalone: true,
-  imports: [CommonModule, PlusOutlineComponent, TrashOutlineComponent, RefreshOutlineComponent],
+  imports: [
+    CommonModule,
+    PlusOutlineComponent,
+    TrashOutlineComponent,
+    RefreshOutlineComponent,
+  ],
   templateUrl: "./template-ref.component.html",
   styles: [
     `
