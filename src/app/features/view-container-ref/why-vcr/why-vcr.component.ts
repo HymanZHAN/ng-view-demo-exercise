@@ -1,14 +1,5 @@
 import { NgTemplateOutlet } from "@angular/common";
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  EmbeddedViewRef,
-  ViewChild,
-  ViewContainerRef,
-  ViewRef,
-} from "@angular/core";
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { PlusOutlineComponent } from "@components/icons";
 import { MinusOutlineComponent } from "@components/icons/minus-outline.component";
 import { CounterComponent } from "./counter.component";
@@ -28,9 +19,6 @@ import { CounterComponent } from "./counter.component";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class WhyVcrComponent {
-  @ViewChild("counter1", { read: ElementRef }) counter1El?: ElementRef;
-  @ViewChild("counterContainer", { read: ViewContainerRef }) counter1Container?: ViewContainerRef;
-
   count: number = 0;
 
   constructor() {}
@@ -41,15 +29,5 @@ export default class WhyVcrComponent {
 
   decrement() {
     this.count--;
-  }
-
-  removeCounterVCR() {
-    this.counter1Container?.remove(0);
-  }
-
-  removeCounterDom() {
-    if (this.counter1El) {
-      this.counter1El.nativeElement.remove();
-    }
   }
 }
