@@ -9,6 +9,7 @@ import { HighlightDirective } from "./highlight.directive";
     <div class="divider">AND</div>
     <h3 class="text-lg font-medium" appHighlight>{{ text }}</h3>
     <div class="divider"></div>
+
     <section class="space-x-4">
       <button class="btn btn-outline text-sm" (click)="highlightDirectly()">
         Direct DOM Manipulation
@@ -31,7 +32,6 @@ export default class ElementRefComponent {
 
   text = "Highlight this line";
   highlightClass = "bg-red-200";
-  highlightDirective = "appHighlight";
 
   constructor(private renderer: Renderer2) {}
 
