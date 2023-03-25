@@ -35,7 +35,7 @@ export default class ElementRefComponent {
 
   constructor(private renderer: Renderer2) {}
 
-  highlightDirectly(): void {}
+  highlightDirectly() {}
 
   highlightWithRenderer() {}
 
