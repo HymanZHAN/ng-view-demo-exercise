@@ -28,16 +28,38 @@ import { HighlightDirective } from "./highlight.directive";
   imports: [HighlightDirective],
 })
 export default class ElementRefComponent {
-  @ViewChild("el") el: ElementRef | undefined;
+  @ViewChild("el") el: ElementRef<HTMLHeadingElement> | undefined;
 
   text = "Highlight this line";
   highlightClass = "bg-red-200";
 
   constructor(private renderer: Renderer2) {}
 
-  highlightDirectly() {}
+  highlightDirectly() {
+    if (this.el) {
+      const element = this.el.nativeElement;
+      element?.classList.add(this.highlightClass);
+      element.innerText = "Highlighted by DOM manipulation";
+    }
+  }
 
-  highlightWithRenderer() {}
+  highlightWithRenderer() {
+    if (this.el) {
+      const element = this.el.nativeElement;
+      this.renderer.addClass(element, this.highlightClass);
+      this.renderer.setProperty(
+        element,
+        "innerText",
+        "Highlighted by Renderer"
+      );
+    }
+  }
 
-  reset() {}
+  reset() {
+    if (this.el) {
+      const element = this.el.nativeElement;
+      this.renderer.setProperty(element, 'innerText', this.text);
+      this.renderer.removeClass(element, this.highlightClass);
+    }
+  }
 }
