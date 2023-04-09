@@ -1,5 +1,10 @@
 import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
+import {
+  Component,
+  TemplateRef,
+  ViewChild,
+  ViewContainerRef,
+} from "@angular/core";
 import {
   PlusOutlineComponent,
   RefreshOutlineComponent,
@@ -24,4 +29,17 @@ import {
     `,
   ],
 })
-export default class TemplateRefComponent {}
+export default class TemplateRefComponent {
+  @ViewChild("listItem", { read: TemplateRef }) listItem!: TemplateRef<unknown>;
+  @ViewChild("container", { read: ViewContainerRef })
+  container!: ViewContainerRef;
+  items: string[] = [];
+  counter = 0;
+
+  addItem() {
+    this.container.createEmbeddedView(this.listItem, {
+      $implicit: `Item ${++this.counter}`,
+      title: "This is title"
+    });
+  }
+}

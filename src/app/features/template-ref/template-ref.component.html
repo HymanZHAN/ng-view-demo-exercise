@@ -1,7 +1,29 @@
-<button title="Add" type="button" class="m-6 mt-4 w-24 btn btn-warning">
+<button
+  title="Add"
+  type="button"
+  class="m-6 mt-4 w-24 btn btn-warning"
+  (click)="addItem()"
+>
   <app-plus-outline></app-plus-outline>
 </button>
 
 <ul class="space-y-4 w-1/3">
-  <li class="rounded-lg h-14 p-4 w-full shadow-lg">This is static.</li>
+  <li #container class="rounded-lg h-14 p-4 w-full shadow-lg">
+    This is static.
+  </li>
+  <!-- li view container -->
+  <!-- <li class="rounded-lg h-14 p-4 w-full shadow-lg" *ngFor="let item of items">
+    {{ item }}
+  </li> -->
+  <!-- <ng-template ngFor let-item [ngForOf]="items">
+    <li class="rounded-lg h-14 p-4 w-full shadow-lg">
+      {{ item }}
+    </li>
+  </ng-template> -->
+  <ng-template #listItem let-item let-title="title">
+    <li class="rounded-lg h-14 p-4 w-full shadow-lg">
+      {{ item }} - {{ title }}
+    </li>
+  </ng-template>
 </ul>
+<!-- ul view container -->
