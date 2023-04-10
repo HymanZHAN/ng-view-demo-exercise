@@ -1,31 +1,44 @@
 <h2 class="text-xl">What is a view container?</h2>
 <section class="m-4 block w-1/2 space-y-4">
   <p>According to Angular's doc, a view container</p>
-  <p class="pl-4 border-l-2 border-l-primary text-gray-500">
-    Can contain host views (created by instantiating a component with the
-    <code>
-      <a
-        class="link-primary"
-        rel="noopener"
-        href="https://angular.io/api/core/ViewContainerRef#createComponent"
-        target="_blank"
-        >createComponent()</a
-      >
-    </code>
-    method), and embedded views (created by instantiating a TemplateRef with the
-    <code>
-      <a
-        class="link-primary"
-        rel="noopener"
-        href="https://angular.io/api/core/ViewContainerRef#createembeddedview"
-        target="_blank"
-        >createEmbeddedView()</a
-      >
-    </code>
-    method). <br />
-    A view container instance can contain other view containers, creating a view
-    hierarchy.
-  </p>
+  <div class="pl-4 border-l-2 border-l-primary text-gray-500">
+    <p>
+      Can contain host views (created by instantiating a component with the
+      <code>
+        <a
+          class="link-primary"
+          rel="noopener"
+          href="https://angular.io/api/core/ViewContainerRef#createComponent"
+          target="_blank"
+          >createComponent()</a
+        >
+      </code>
+      method), and embedded views (created by instantiating a TemplateRef with
+      the
+      <code>
+        <a
+          class="link-primary"
+          rel="noopener"
+          href="https://angular.io/api/core/ViewContainerRef#createembeddedview"
+          target="_blank"
+          >createEmbeddedView()</a
+        >
+      </code>
+      method).
+      <span class="divider"></span>
+      可以包含宿主视图（当用 createComponent()
+      方法实例化组件时创建）和内嵌视图（当用 createEmbeddedView() 方法实例化
+      TemplateRef 时创建）。
+    </p>
+    <br />
+    <p>
+      A view container instance can contain other view containers, creating a
+      view hierarchy.
+      <span class="divider"></span>
+      视图容器的实例还可以包含其它视图容器，以创建层次化视图。
+    </p>
+  </div>
+
   <p>
     Think of it as a abstract and invisible "container" that sits "next" to the
     owner element that you can place newly created components or embedded views.
