@@ -1,33 +1,56 @@
 <div
   class="m-6 mt-4 space-y-2 flex flex-col md:flex-row md:space-x-4 md:space-y-0"
 >
-  <button title="Add" type="button" class="w-24 btn btn-success">
+  <button
+    title="Add"
+    type="button"
+    class="w-24 btn btn-success"
+    (click)="addItem()"
+  >
     <app-plus-outline></app-plus-outline>
   </button>
-  <button title="Remove" type="button" class="w-24 btn btn-error">
+  <button
+    title="Remove"
+    type="button"
+    class="w-24 btn btn-error"
+    (click)="removeItem()"
+  >
     <app-trash-outline></app-trash-outline>
   </button>
-  <button title="Move down" type="button" class="w-24 btn btn-warning">
+  <button
+    title="Move down"
+    type="button"
+    class="w-24 btn btn-warning"
+    (click)="moveItemDown()"
+  >
     <app-arrow-down-outline></app-arrow-down-outline>
   </button>
-  <button title="Move up" type="button" class="w-24 btn btn-info">
+  <button
+    title="Move up"
+    type="button"
+    class="w-24 btn btn-info"
+    (click)="moveItemUp()"
+  >
     <app-arrow-up-outline></app-arrow-up-outline>
   </button>
-  <button title="Reset" type="button" class="w-24 btn">
+  <button title="Reset" type="button" class="w-24 btn" (click)="reset()">
     <app-refresh-outline></app-refresh-outline>
   </button>
 </div>
 
 <ul class="space-y-4 w-1/3">
-  <li class="cursor-pointer rounded-lg h-14 p-4 w-full shadow-lg">
+  <li #container class="cursor-pointer rounded-lg h-14 p-4 w-full shadow-lg">
     This is static.
   </li>
 
   <!-- use the li below as the template -->
-  <li
-    class="cursor-pointer rounded-lg h-14 p-4 w-full shadow-lg"
-    [ngClass]="{ 'border-2 border-primary ': true }"
-  >
-    name placeholder
-  </li>
+  <ng-template #listItemTemplate let-name>
+    <li
+      class="cursor-pointer rounded-lg h-14 p-4 w-full shadow-lg"
+      [ngClass]="{ 'border-2 border-primary ': name === selectedItemName }"
+      (click)="selectItem(name)"
+    >
+      {{ name }}
+    </li>
+  </ng-template>
 </ul>
