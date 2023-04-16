@@ -1,5 +1,10 @@
 import { NgTemplateOutlet } from "@angular/common";
-import { ChangeDetectionStrategy, Component } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ViewChild,
+  ViewContainerRef,
+} from "@angular/core";
 import { PlusOutlineComponent } from "@components/icons";
 import { MinusOutlineComponent } from "@components/icons/minus-outline.component";
 import { CounterComponent } from "./counter.component";
@@ -24,6 +29,9 @@ import { CounterComponent } from "./counter.component";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class WhyVcrComponent {
+  @ViewChild("counter1Container", { read: ViewContainerRef })
+  private container!: ViewContainerRef;
+
   count: number = 0;
 
   constructor() {}
@@ -34,5 +42,16 @@ export default class WhyVcrComponent {
 
   decrement() {
     this.count--;
+  }
+
+  removeViaDOM() {
+    const section = document.querySelector("section#counters");
+    if (section?.firstChild) {
+      section.removeChild(section.firstChild);
+    }
+  }
+
+  removeViaVCR() {
+    this.container.remove(0);
   }
 }
